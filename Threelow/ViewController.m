@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Dice.h"
 
 @interface ViewController ()
 
@@ -15,8 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *dice3;
 @property (strong, nonatomic) IBOutlet UIButton *dice4;
 @property (strong, nonatomic) IBOutlet UIButton *dice5;
-@property (strong, nonatomic) NSArray *diceImageArray;
-
+@property (strong, nonatomic) NSArray *diceArray;
 
 @end
 
@@ -25,15 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    self.diceImageArray = @[
-                        [UIImage imageNamed:@"dice_1.png"],
-                        [UIImage imageNamed:@"dice_2.png"],
-                        [UIImage imageNamed:@"dice_3.png"],
-                        [UIImage imageNamed:@"dice_4.png"],
-                        [UIImage imageNamed:@"dice_5.png"],
-                        [UIImage imageNamed:@"dice_6.png"],
-                        ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,21 +33,37 @@
 }
 
 - (IBAction)rollDiceButtonPressed:(UIButton *)sender {
-    int numberArray[5];
-    for (int i = 0; i < 5; i++) {
-        int randomNumber = arc4random_uniform(6);
-        numberArray[i] = randomNumber;
-    }
+    self.diceArray = @[
+                       [[Dice alloc] init],
+                       [[Dice alloc] init],
+                       [[Dice alloc] init],
+                       [[Dice alloc] init],
+                       [[Dice alloc] init]
+                       ];
     
-    self.dice1.imageView.image = self.diceImageArray[numberArray[0]];
-    self.dice2.imageView.image = self.diceImageArray[numberArray[1]];
-    self.dice3.imageView.image = self.diceImageArray[numberArray[2]];
-    self.dice4.imageView.image = self.diceImageArray[numberArray[3]];
-    self.dice5.imageView.image = self.diceImageArray[numberArray[4]];
+    [self.dice1 setTitle:[self.diceArray[0] face] forState:UIControlStateNormal];
+    self.dice1.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice2 setTitle:[self.diceArray[1] face] forState:UIControlStateNormal];
+    self.dice2.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice3 setTitle:[self.diceArray[2] face] forState:UIControlStateNormal];
+    self.dice3.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice4 setTitle:[self.diceArray[3] face] forState:UIControlStateNormal];
+    self.dice4.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice5 setTitle:[self.diceArray[4] face] forState:UIControlStateNormal];
+    self.dice5.backgroundColor = [UIColor whiteColor];
     
 }
 
 - (IBAction)resetDiceButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)holdDiePressed:(UIButton *)sender {
+    UIButton *clickedButton = (UIButton *)sender;
+    clickedButton.backgroundColor = [UIColor lightGrayColor];
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C46EB131B0323C500EB79FD /* Dice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C46EB121B0323C500EB79FD /* Dice.m */; };
 		9CFC46EF1B02D3F9007A2E27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC46EE1B02D3F9007A2E27 /* main.m */; };
 		9CFC46F21B02D3F9007A2E27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC46F11B02D3F9007A2E27 /* AppDelegate.m */; };
 		9CFC46F51B02D3F9007A2E27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC46F41B02D3F9007A2E27 /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C46EB111B0323C500EB79FD /* Dice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dice.h; sourceTree = "<group>"; };
+		9C46EB121B0323C500EB79FD /* Dice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dice.m; sourceTree = "<group>"; };
 		9CFC46E91B02D3F9007A2E27 /* Threelow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Threelow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CFC46ED1B02D3F9007A2E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CFC46EE1B02D3F9007A2E27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				9CFC46F11B02D3F9007A2E27 /* AppDelegate.m */,
 				9CFC46F31B02D3F9007A2E27 /* ViewController.h */,
 				9CFC46F41B02D3F9007A2E27 /* ViewController.m */,
+				9C46EB111B0323C500EB79FD /* Dice.h */,
+				9C46EB121B0323C500EB79FD /* Dice.m */,
 				9CFC46F61B02D3F9007A2E27 /* Main.storyboard */,
 				9CFC46F91B02D3F9007A2E27 /* Images.xcassets */,
 				9CFC46FB1B02D3F9007A2E27 /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				9CFC46F51B02D3F9007A2E27 /* ViewController.m in Sources */,
 				9CFC46F21B02D3F9007A2E27 /* AppDelegate.m in Sources */,
+				9C46EB131B0323C500EB79FD /* Dice.m in Sources */,
 				9CFC46EF1B02D3F9007A2E27 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +418,7 @@
 				9CFC470E1B02D3F9007A2E27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CFC470F1B02D3F9007A2E27 /* Build configuration list for PBXNativeTarget "ThreelowTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				9CFC47111B02D3F9007A2E27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
