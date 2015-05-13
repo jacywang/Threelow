@@ -17,6 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *dice4;
 @property (strong, nonatomic) IBOutlet UIButton *dice5;
 @property (strong, nonatomic) NSArray *diceArray;
+@property (strong, nonatomic) NSMutableArray *diceResults;
+@property (assign, nonatomic) NSInteger round;
+@property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end
 
@@ -25,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.diceResults = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +37,7 @@
 }
 
 - (IBAction)rollDiceButtonPressed:(UIButton *)sender {
+    self.round += 1;
     self.diceArray = @[
                        [[Dice alloc] init],
                        [[Dice alloc] init],
@@ -59,11 +64,47 @@
 }
 
 - (IBAction)resetDiceButtonPressed:(UIButton *)sender {
+    self.round = 0;
+    self.scoreLabel.text = @"0";
+    self.diceResults = [NSMutableArray array];
+    
+    [self.dice1 setTitle:@"" forState:UIControlStateNormal];
+    self.dice1.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice2 setTitle:@"" forState:UIControlStateNormal];
+    self.dice2.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice3 setTitle:@"" forState:UIControlStateNormal];
+    self.dice3.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice4 setTitle:@"" forState:UIControlStateNormal];
+    self.dice4.backgroundColor = [UIColor whiteColor];
+    
+    [self.dice5 setTitle:@"" forState:UIControlStateNormal];
+    self.dice5.backgroundColor = [UIColor whiteColor];
+    
 }
 
 - (IBAction)holdDiePressed:(UIButton *)sender {
     UIButton *clickedButton = (UIButton *)sender;
-    clickedButton.backgroundColor = [UIColor lightGrayColor];
+    NSInteger currentDiceIndex = clickedButton.tag - 1;
+    if (clickedButton.backgroundColor == [UIColor lightGrayColor]) {
+        clickedButton.backgroundColor = [UIColor whiteColor];
+        [self.diceResults removeLastObject];
+    } else {
+        clickedButton.backgroundColor = [UIColor lightGrayColor];
+        self.diceResults[self.round - 1] = self.diceArray[currentDiceIndex];
+    }
+
+    NSInteger scoreSum = 0;
+    
+    for (Dice *die in self.diceResults) {
+        if (die && (die.diceNumber + 1 != 3)) {
+            scoreSum += die.diceNumber + 1;
+        }
+    }
+    
+    self.scoreLabel.text = [NSString stringWithFormat:@"%lu",scoreSum];
 }
 
 @end
